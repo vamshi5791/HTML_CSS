@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>5)store table information</title>
+    <style>
+        .row{
+           background-color:green;
+            padding: 5px;
+        }
+        .row-button{
+            padding: 5px;
+            border-radius: 5px;
+            color: black;
+            background-color: darkgoldenrod;
+        }
+    </style>
+    <script>
+        function newRow() {
+            new Date();
+            if (typeof (Storage) !== "undefined") {
+                if (localStorage.scontent) {
+                    localStorage.scontent = localStorage.scontent + "<tr><td>" + new Date() + "</td></tr>";
+                } else {
+                    localStorage.scontent = "<tr><td>" + new Date() + "</td></tr>";
+                }
+                document.getElementById("result").innerHTML = "<table>" + localStorage.scontent + "</table>";
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="row">
+        <p><button  class="row-button" onclick="newRow()" type="button">Click here to see content</button></p>
+        <div id="result"></div>
+        <p>click the button to see the result.</p>
+    </div>
+   
+    
+</body>
+
+</html>
